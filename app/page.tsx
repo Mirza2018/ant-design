@@ -2,6 +2,8 @@ import { Button, Flex } from 'antd';
 import React from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import SigninPage from '@/components/SigninPage';
+import "./globals.css";
+import Register from '@/components/Register';
 const HomePage = () => {
   return (
     <div className=''>
@@ -23,7 +25,8 @@ const HomePage = () => {
             Solid
           </Button> */}
 
-<SigninPage/>
+{/* <SigninPage/> */}
+<Register/>
 
         
     </div>

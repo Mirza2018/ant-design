@@ -13,54 +13,46 @@ const SigninPage: React.FC = () => {
 
       console.log('Received values from form: ', values); // Step 3: Handle form data on submit
 
-      const template={
-        to_name:"Owner",
-        from_name:"Mirza",
-        message:   `Input: ${values.Input},
-                    InputNumber: ${values.InputNumber},
-                    TextArea: ${values.TextArea}, 
-                    Date Range: ${values.RangePicker}`,
-      }
+      // const template={
+      //   to_name:"Owner",
+      //   from_name:"Mirza",
+      //   message:   `Input: ${values.Input},
+      //               InputNumber: ${values.InputNumber},
+      //               TextArea: ${values.TextArea}, 
+      //               Date Range: ${values.RangePicker}`,
+      // }
     
-      emailjs
-      .send('service_szonars', 'template_snq7p6q', template, {
-        publicKey: 'ztknCVO9n5dsTy1FC',
-      })
-      .then(
-        () => {
-          console.log('SUCCESS!');
-        },
-        (error) => {
-          console.log('FAILED...', error.text);
-        },
-      );
+      // emailjs
+      // .send('service_szonars', 'template_snq7p6q', template, {
+      //   publicKey: 'ztknCVO9n5dsTy1FC',
+      // })
+      // .then(
+      //   () => {
+      //     console.log('SUCCESS!');
+      //   },
+      //   (error) => {
+      //     console.log('FAILED...', error.text);
+      //   },
+      // );
 
   };
 
-  const formItemLayout = {
-    labelCol: {
-      xs: { span: 24 },
-      sm: { span: 6 },
-    },
-    wrapperCol: {
-      xs: { span: 24 },
-      sm: { span: 14 },
-    },
-  };
+ 
 
   return (
-    <Form
-      {...formItemLayout}
+    <div>
+         <Form
       form={form} // Step 2: Use form instance for this form
       onFinish={onFormSubmit} // Step 3: Specify the onFinish function
-      style={{ maxWidth: 600 }}
+      
     >
       <Form.Item
         label="Input"
         name="Input"
         rules={[{ required: true, message: 'Please input!' }]}
+         
       >
-        <Input />
+        <Input className='!text-slate-600' />
       </Form.Item>
 
       <Form.Item
@@ -87,12 +79,15 @@ const SigninPage: React.FC = () => {
         <RangePicker />
       </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 6, span: 16 }}>
-        <Button type="primary" htmlType="submit">
+     
+        <Button type="primary" className='text-amber-500  bg-black' htmlType="submit" >
           Submit
         </Button>
-      </Form.Item>
-    </Form>
+  
+    </Form> 
+    <button className='text-red-600'>hi</button>
+    </div>
+
   );
 };
 
